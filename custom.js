@@ -8,6 +8,7 @@ const cd = $(".cd");
 const playButton = $(".btn-toggle-play");
 const Player = $(".player");
 const time = $("#time");
+const volume = $("#volume");
 const redoButton = $(".btn-repeat");
 const nextButton = $(".btn-next");
 const prevButton = $(".btn-prev");
@@ -231,6 +232,11 @@ const app = {
     time.oninput = function () {
       audio.currentTime = (time.value / 100) * audio.duration;
     };
+    // Click vào thanh voulume
+    volume.oninput = function () {
+      audio.volume = volume.value / 100;
+    };
+
     // Xử lí tua lại bài hát
     redoButton.onclick = function () {
       _this.isRepeat = !_this.isRepeat;
