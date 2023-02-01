@@ -7,8 +7,10 @@ const audio = $("#audio");
 const cd = $(".cd");
 const playButton = $(".btn-toggle-play");
 const Player = $(".player");
+const Hide = $(".playlist_song");
 const time = $("#time");
 const volume = $("#volume");
+const playlistButton = $(".btn-toggle-playlist");
 const redoButton = $(".btn-repeat");
 const nextButton = $(".btn-next");
 const prevButton = $(".btn-prev");
@@ -32,6 +34,7 @@ const app = {
   isRandom: false,
   isPlaying: false,
   isRepeat: false,
+  isShowing: false,
   config: JSON.parse(localStorage.getItem(PlAYER_STORAGE_KEY)) || {},
   songs: [
     {
@@ -212,6 +215,18 @@ const app = {
         _this.isPlaying = false;
       }
     };
+    // Xu li show playlist
+    playlistButton.onclick = function () {
+      if (_this.isShowing === false) {
+        Hide.classList.add("showing");
+
+        _this.isShowing = true;
+      } else {
+        Hide.classList.remove("showing");
+        _this.isShowing = false;
+      }
+      console.log("Hello Javascript!");
+    };
 
     // Xử lí thanh chạy
     audio.ontimeupdate = function () {
@@ -236,7 +251,6 @@ const app = {
     volume.oninput = function () {
       audio.volume = volume.value / 100;
     };
-
     // Xử lí tua lại bài hát
     redoButton.onclick = function () {
       _this.isRepeat = !_this.isRepeat;

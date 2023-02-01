@@ -40,7 +40,7 @@ html {
 .dashboard {
   padding: 16px 16px 14px;
   background-color: #fff;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   width: 100%;
   max-width: 480px;
@@ -143,11 +143,20 @@ header h2 {
 }
 
 /* PLAYLIST */
-.playlist {
-  margin-top: 408px;
-  padding: 12px;
+.playlist_song {
+  background-color: #fff;
 }
-
+.playlist {
+  /* margin-top: 408px; */
+  display: none;
+}
+.playlist_song.showing .playlist {
+  display: block;
+  margin: 10px;
+}
+.btn-toggle-playlist {
+  font-size: 36px;
+}
 .song {
   display: flex;
   align-items: center;
